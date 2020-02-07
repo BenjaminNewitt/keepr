@@ -22,5 +22,23 @@ namespace Keepr.Services
     {
       return _repo.Create(newKeep);
     }
+
+    internal Keep GetKeepById(int Id, string UserId)
+    {
+      Keep exists = _repo.GetKeepById(Id);
+      if (exists == null) { throw new Exception("Invalid ID"); }
+      if (exists.UserId != exists.UserId || exists.IsPrivate == true) { throw new Exception("Unauthorized"); }
+      return exists;
+    }
+
+    internal Keep Edit(Keep Update)
+    {
+      Keep exists = _repo.GetKeepById(Update.Id);
+      if (exists == null) { throw new Exception("Invalid Request"); }
+      if (exists.UserId != Update.UserId) { throw new Exception("Unauthorized"); }
+
+      _repo.Edit(Update);
+      return Update;
+    }
   }
 }
