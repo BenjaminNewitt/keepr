@@ -44,10 +44,16 @@ namespace Keepr.Repositories
       UPDATE keeps
       SET
       name = @Name,
-      description = @escription
+      description = @Description
       WHERE id = @Id;
       ";
       _db.Execute(sql, Update);
+    }
+
+    internal void Delete(int id)
+    {
+      string sql = "DELETE FROM keeps WHERE id = @Id";
+      _db.Execute(sql, new { id });
     }
   }
 }

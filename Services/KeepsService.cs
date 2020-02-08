@@ -13,7 +13,7 @@ namespace Keepr.Services
     {
       _repo = repo;
     }
-    public IEnumerable<Keep> Get()
+    public IEnumerable<Keep> Get(string UserId)
     {
       return _repo.Get();
     }
@@ -39,6 +39,16 @@ namespace Keepr.Services
 
       _repo.Edit(Update);
       return Update;
+    }
+
+    internal string Delete(int Id, string UserId)
+    {
+      Keep exists = _repo.GetKeepById(Id);
+      if (exists == null) { throw new Exception("Invalid Request"); }
+      if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
+      _repo.Delete(Id);
+      return "Successfully Deleted";
+
     }
   }
 }
