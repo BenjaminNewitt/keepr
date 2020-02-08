@@ -46,6 +46,19 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
+    [HttpDelete("{id}")]
+    [Authorize]
+    public ActionResult<string> DeleteVault(int id)
+    {
+      try
+      {
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_vs.Delete(id, userId));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }

@@ -30,5 +30,11 @@ namespace Keepr.Repositories
       string sql = "SELECT * FROM vaults WHERE id = @Id";
       return _db.QueryFirstOrDefault<Vault>(sql, new { Id });
     }
+
+    internal void Delete(int id)
+    {
+      string sql = "DELETE FROM vaults WHERE id = @Id";
+      _db.Execute(sql, new { id });
+    }
   }
 }

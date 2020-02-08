@@ -48,7 +48,6 @@ namespace Keepr.Services
       if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
       _repo.Delete(Id);
       return "Successfully Deleted";
-
     }
   }
 }
