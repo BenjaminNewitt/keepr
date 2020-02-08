@@ -16,5 +16,13 @@ namespace Keepr.Services
     {
       return _repo.Create(newVault);
     }
+
+    internal Vault GetVaultById(int Id, string userId)
+    {
+      Vault exists = _repo.GetVaultById(Id);
+      if (exists == null) { throw new Exception("Invalid ID"); }
+      if (exists.UserId != exists.UserId) { throw new Exception("Unauthorized"); }
+      return exists;
+    }
   }
 }

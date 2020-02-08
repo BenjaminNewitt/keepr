@@ -24,5 +24,11 @@ namespace Keepr.Repositories
       VaultData.Id = id;
       return VaultData;
     }
+
+    internal Vault GetVaultById(int Id)
+    {
+      string sql = "SELECT * FROM vaults WHERE id = @Id";
+      return _db.QueryFirstOrDefault<Vault>(sql, new { Id });
+    }
   }
 }
