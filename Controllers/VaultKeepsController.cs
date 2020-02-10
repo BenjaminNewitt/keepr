@@ -19,7 +19,7 @@ namespace Keepr.Controllers
 
     [HttpPost]
     [Authorize]
-    public ActionResult<string> Create([FromBody] VaultKeep newData)
+    public ActionResult<String> Create([FromBody] VaultKeep newData)
     {
       try
       {
