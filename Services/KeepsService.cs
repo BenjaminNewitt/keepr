@@ -13,12 +13,12 @@ namespace Keepr.Services
     {
       _repo = repo;
     }
-    public IEnumerable<Keep> Get(string UserId)
+    internal IEnumerable<Keep> Get(string UserId)
     {
       return _repo.Get();
     }
 
-    public Keep Create(Keep newKeep)
+    internal Keep Create(Keep newKeep)
     {
       return _repo.Create(newKeep);
     }
@@ -27,7 +27,7 @@ namespace Keepr.Services
     {
       Keep exists = _repo.GetKeepById(Id);
       if (exists == null) { throw new Exception("Invalid ID"); }
-      if (exists.UserId != exists.UserId || exists.IsPrivate == true) { throw new Exception("Unauthorized"); }
+      if (exists.UserId != UserId || exists.IsPrivate == true) { throw new Exception("Unauthorized"); }
       return exists;
     }
 

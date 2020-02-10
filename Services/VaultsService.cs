@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Keepr.Models;
 using Keepr.Repositories;
 
@@ -12,17 +13,20 @@ namespace Keepr.Services
       _repo = repo;
     }
 
-    public Vault Create(Vault newVault)
+    internal Vault Create(Vault newVault)
     {
       return _repo.Create(newVault);
+
     }
 
-    internal Vault GetVaultById(int Id, string userId)
+    internal IEnumerable<Vault> GetVaults(string UserId)
     {
-      Vault exists = _repo.GetVaultById(Id);
-      if (exists == null) { throw new Exception("Invalid ID"); }
-      if (exists.UserId != exists.UserId) { throw new Exception("Unauthorized"); }
-      return exists;
+      // Vault exists = _repo.GetVaultById(Id);
+      // if (exists == null) { throw new Exception("Invalid ID"); }
+      // if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
+      // return exists;
+
+      return _repo.GetVaults(UserId);
     }
 
     internal string Delete(int Id, string UserId)

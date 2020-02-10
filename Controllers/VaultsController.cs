@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Services;
@@ -32,28 +33,32 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet]
     [Authorize]
-    public ActionResult<Vault> GetVaultById(int Id)
+    public ActionResult<IEnumerable<Vault>> GetVaults()
     {
       try
       {
         var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_vs.GetVaultById(Id, userId));
+        return Ok(_vs.GetVaults(userId));
       }
       catch (Exception e)
       {
         return BadRequest(e.Message);
       }
     }
-    [HttpDelete("{id}")]
+
+
+
+
+    [HttpDelete("{Id}")]
     [Authorize]
-    public ActionResult<string> DeleteVault(int id)
+    public ActionResult<string> DeleteVault(int Id)
     {
       try
       {
         var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_vs.Delete(id, userId));
+        return Ok(_vs.Delete(Id, userId));
       }
       catch (Exception e)
       {

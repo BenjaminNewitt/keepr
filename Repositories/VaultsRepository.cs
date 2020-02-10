@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using Dapper;
 using Keepr.Models;
@@ -29,6 +30,12 @@ namespace Keepr.Repositories
     {
       string sql = "SELECT * FROM vaults WHERE id = @Id";
       return _db.QueryFirstOrDefault<Vault>(sql, new { Id });
+    }
+
+    internal IEnumerable<Vault> GetVaults(string UserId)
+    {
+      string sql = "SELECT * FROM vaults WHERE userId = @UserId";
+      return _db.Query<Vault>(sql, new { UserId });
     }
 
     internal void Delete(int id)
