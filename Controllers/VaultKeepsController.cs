@@ -51,7 +51,20 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
-
-
+    [HttpDelete]
+    [Authorize]
+    public ActionResult<String> Edit([FromBody] VaultKeep vk)
+    {
+      try
+      {
+        var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        vk.UserId = UserId;
+        return Ok(_vks.Delete(vk));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }

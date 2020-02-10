@@ -32,5 +32,11 @@ namespace Keepr.Repositories
       newData.Id = id;
       return newData;
     }
+
+    internal void Delete(int Id)
+    {
+      string sql = "DELETE FROM vaultkeeps WHERE id =@Id";
+      _db.Execute(sql, new { Id });
+    }
   }
 }

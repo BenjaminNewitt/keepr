@@ -21,5 +21,16 @@ namespace Keepr.Services
       }
       _repo.Create(newData);
     }
+
+    internal string Delete(VaultKeep vk)
+    {
+      VaultKeep exists = _repo.Find(vk);
+      if (exists == null)
+      {
+        throw new Exception("Invalid ID Combination");
+      }
+      _repo.Delete(exists.Id);
+      return "Successfully Deleted";
+    }
   }
 }

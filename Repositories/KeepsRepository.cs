@@ -63,7 +63,7 @@ namespace Keepr.Repositories
       INNER JOIN keeps k ON k.id = vk.keepId
       WHERE (vaultId = @vaultId AND vk.userId = @userId);
       ";
-      return _db.Query<Keep>(sql, new { userId });
+      return _db.Query<Keep>(sql, new { vaultId, userId });
     }
   }
 }
