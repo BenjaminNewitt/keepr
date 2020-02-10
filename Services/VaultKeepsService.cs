@@ -14,12 +14,11 @@ namespace Keepr.Services
 
     internal void Create(VaultKeep newData)
     {
-      VaultKeep exists = _repo.Find(newData);
+      var exists = _repo.Find(newData);
       if (exists != null)
       {
         throw new Exception("Keep already in Vault");
       }
-
       _repo.Create(newData);
     }
   }

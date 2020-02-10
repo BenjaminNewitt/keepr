@@ -26,15 +26,24 @@ namespace Keepr.Services
     internal Keep GetKeepById(int Id, string UserId)
     {
       Keep exists = _repo.GetKeepById(Id);
-      if (exists == null) { throw new Exception("Invalid ID"); }
-      if (exists.UserId != UserId || exists.IsPrivate == true) { throw new Exception("Unauthorized"); }
+      if (exists == null)
+      {
+        throw new Exception("Invalid ID");
+      }
+      if (exists.UserId != UserId || exists.IsPrivate == true)
+      {
+        throw new Exception("Unauthorized");
+      }
       return exists;
     }
 
     internal Keep Edit(Keep Update)
     {
       Keep exists = _repo.GetKeepById(Update.Id);
-      if (exists == null) { throw new Exception("Invalid Request"); }
+      if (exists == null)
+      {
+        throw new Exception("Invalid Request");
+      }
       if (exists.UserId != Update.UserId) { throw new Exception("Unauthorized"); }
 
       _repo.Edit(Update);
@@ -44,10 +53,21 @@ namespace Keepr.Services
     internal string Delete(int Id, string UserId)
     {
       Keep exists = _repo.GetKeepById(Id);
-      if (exists == null) { throw new Exception("Invalid Request"); }
-      if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
+      if (exists == null)
+      {
+        throw new Exception("Invalid Request");
+      }
+      if (exists.UserId != UserId)
+      {
+        throw new Exception("Unauthorized");
+      }
       _repo.Delete(Id);
       return "Successfully Deleted";
+    }
+
+    internal IEnumerable<Keep> GetKeepsByVaultId(int id, string userId)
+    {
+      return _repo.GetKeepsByVaultId(id, userId);
     }
   }
 }

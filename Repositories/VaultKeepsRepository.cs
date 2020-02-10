@@ -13,19 +13,19 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    internal VaultKeep Find(VaultKeep newData)
+    internal VaultKeep Find(VaultKeep vk)
     {
       string sql = "SELECT * FROM vaultkeeps WHERE (keepId = @KeepId AND vaultId = @VaultId AND userId = @UserId)";
-      return _db.QueryFirstOrDefault(sql, newData);
+      return _db.QueryFirstOrDefault<VaultKeep>(sql, vk);
     }
 
     internal VaultKeep Create(VaultKeep newData)
     {
       string sql = @"
       INSERT INTO vaultkeeps
-      (keepId, vaultId)
+      (keepId, vaultId, userId)
       VALUES
-      (@KeepId, @VaultId);
+      (@KeepId, @VaultId, @UserId);
       SELECT LAST_INSERT_ID();
       ";
       int id = _db.ExecuteScalar<int>(sql, newData);
