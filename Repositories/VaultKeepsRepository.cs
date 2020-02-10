@@ -19,6 +19,13 @@ namespace Keepr.Repositories
       return _db.QueryFirstOrDefault<VaultKeep>(sql, vk);
     }
 
+    internal VaultKeep FindToDelete(int VaultId, int KeepId, string UserId)
+    {
+      string sql = "SELECT * FROM vaultkeeps WHERE (keepId = @KeepId AND vaultId = @VaultId AND userId = @UserId)";
+      return _db.QueryFirstOrDefault<VaultKeep>(sql, new { VaultId, KeepId, UserId });
+    }
+
+
     internal VaultKeep Create(VaultKeep newData)
     {
       string sql = @"
