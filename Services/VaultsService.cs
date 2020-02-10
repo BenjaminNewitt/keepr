@@ -21,11 +21,6 @@ namespace Keepr.Services
 
     internal IEnumerable<Vault> GetVaults(string UserId)
     {
-      // Vault exists = _repo.GetVaultById(Id);
-      // if (exists == null) { throw new Exception("Invalid ID"); }
-      // if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
-      // return exists;
-
       return _repo.GetVaults(UserId);
     }
 
@@ -36,6 +31,14 @@ namespace Keepr.Services
       if (exists.UserId != UserId) { throw new Exception("Unauthorized"); }
       _repo.Delete(Id);
       return "Successfully Deleted";
+    }
+
+    internal Vault GetVaultById(int id, string userId)
+    {
+      Vault exists = _repo.GetVaultById(id);
+      if (exists == null) { throw new Exception("Invalid ID"); }
+      if (exists.UserId != userId) { throw new Exception("Unauthorized"); }
+      return exists;
     }
   }
 }
