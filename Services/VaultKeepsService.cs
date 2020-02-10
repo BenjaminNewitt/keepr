@@ -1,3 +1,5 @@
+using System;
+using Keepr.Models;
 using Keepr.Repositories;
 
 namespace Keepr.Services
@@ -8,6 +10,17 @@ namespace Keepr.Services
     public VaultKeepsService(VaultKeepsRepository vkr)
     {
       _repo = vkr;
+    }
+
+    internal void Create(VaultKeep newData)
+    {
+      VaultKeep exists = _repo.Find(newData);
+      if (exists != null)
+      {
+        throw new Exception("Keep already in Vault");
+      }
+
+      _repo.Create(newData);
     }
   }
 }
