@@ -2,7 +2,7 @@
   <div class="vault">
     <div class="card mb-5" style="width: 20vw;">
       <div class="card-body">
-        <p class="card-text">{{ vaultData.name }}</p>
+        <h4 class="card-text">{{ vaultData.name }}</h4>
       </div>
     </div>
   </div>

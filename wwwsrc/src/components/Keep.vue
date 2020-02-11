@@ -11,7 +11,7 @@
           :
           {{ keepData.shares }}
         </p>
-        <p class="card-text">{{ keepData.name }}</p>
+        <h4 class="card-text">{{ keepData.name }}</h4>
       </div>
     </div>
   </div>
