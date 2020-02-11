@@ -8,7 +8,7 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <!-- <keep class="col-3" v-for="userKeep in userKeeps" :key="userKeep.Id" :keepData="userKeep"></keep> -->
+          <keep class="col-3" v-for="userKeep in userKeeps" :key="userKeep.Id" :keepData="userKeep"></keep>
         </div>
       </div>
     </div>
@@ -25,12 +25,12 @@ export default {
     NewKeep
   },
   mounted() {
-    // this.$store.dispatch("getUserKeeps");
+    this.$store.dispatch("getUserKeeps");
   },
   computed: {
-    // userKeeps() {
-    //   return this.$store.state.userKeeps;
-    // }
+    userKeeps() {
+      return this.$store.state.userKeeps;
+    }
   }
 };
 </script>

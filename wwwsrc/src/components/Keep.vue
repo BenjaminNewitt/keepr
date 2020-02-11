@@ -3,7 +3,7 @@
     <div class="card mb-5" style="width: 20vw;">
       <img :src="keepData.img" class="card-img-top" alt="..." />
       <div class="card-body">
-        <p class="card-text">{{ keepData.description }}</p>
+        <p class="card-text">{{ keepData.name }}</p>
       </div>
     </div>
   </div>

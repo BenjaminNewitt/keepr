@@ -4,27 +4,27 @@
       type="button"
       class="btn btn-primary"
       data-toggle="modal"
-      data-target="#exampleModal"
+      data-target="#newKeepModal"
     >new keep</button>
 
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="newKeepModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="newKeepModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Keep</h5>
+            <h5 class="modal-title" id="newKeepModalLabel">New Keep</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form>
+          <form @submit.prevent="addKeep">
             <div class="modal-body">
               <div class="form-group">
                 <input
@@ -73,7 +73,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Create Keep</button>
+              <button type="submit" class="btn btn-primary">Create Keep</button>
             </div>
           </form>
         </div>
@@ -97,6 +97,7 @@ export default {
   },
   methods: {
     addKeep() {
+      $("#newKeepModal").modal("hide");
       let keep = { ...this.newKeep };
       this.$store.dispatch("addKeep", keep);
       this.newKeep.name = "";

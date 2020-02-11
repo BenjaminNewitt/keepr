@@ -11,7 +11,7 @@ let baseUrl = location.host.includes("localhost")
 
 let api = Axios.create({
   baseURL: baseUrl + "api/",
-  timeout: 3000,
+  timeout: 8000,
   withCredentials: true
 });
 
@@ -23,6 +23,9 @@ export default new Vuex.Store({
   mutations: {
     setResource(state, payload) {
       state[payload.name] = payload.data;
+    },
+    addUserKeep(state, payload) {
+      state.userKeeps.push(payload);
     }
   },
   actions: {
@@ -46,6 +49,15 @@ export default new Vuex.Store({
       try {
         let res = await api.get("keeps/user");
         commit("setResource", { name: "userKeeps", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async addKeep({ commit, dispatch }, keepData) {
+      try {
+        let res = await api.post("keeps", keepData);
+        commit("addUserKeep", res.data);
       } catch (error) {
         console.error(error);
       }
