@@ -12,13 +12,12 @@
         </div>
       </div>
       <div class="col-4">
+        <newVault></newVault>
         <p>My Vaults</p>
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <vault class="col-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault">
-            <!-- Insert Vaults here -->
-          </vault>
+          <vault class="col-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vault>
         </div>
       </div>
     </div>
@@ -29,12 +28,14 @@
 import Keep from "@/components/Keep.vue";
 import NewKeep from "@/components/NewKeep.vue";
 import Vault from "@/components/Vault.vue";
+import NewVault from "@/components/NewVault.vue";
 export default {
   name: "dashboard",
   components: {
     Keep,
     NewKeep,
-    Vault
+    Vault,
+    NewVault
   },
   mounted() {
     this.$store.dispatch("getUserKeeps");
