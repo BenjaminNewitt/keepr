@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <h1>DASHBOARD</h1>
-    public {{ publicKeeps }}
+    public {{ publicKeeps }} user {{ userKeeps}}
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     publicKeeps() {
       return this.$store.state.publicKeeps;
     },
-    publicKeeps() {
+    userKeeps() {
       return this.$store.state.userKeeps;
     }
   }
