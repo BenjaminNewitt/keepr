@@ -7,6 +7,9 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
+          <div class="col-3">
+            <!-- New keep feature here -->
+          </div>
           <keep
             class="col-3"
             v-for="userKeep in userKeeps"
