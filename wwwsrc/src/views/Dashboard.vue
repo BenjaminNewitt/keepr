@@ -3,19 +3,12 @@
     <div class="row">
       <div class="col-4">
         <h1>DASHBOARD</h1>
+        <newKeep></newKeep>
         <p>My Keeps</p>
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <div class="col-3">
-            <!-- New keep feature here -->
-          </div>
-          <keep
-            class="col-3"
-            v-for="userKeep in userKeeps"
-            :key="userKeep.Id"
-            :keepData="userKeep"
-          ></keep>
+          <!-- <keep class="col-3" v-for="userKeep in userKeeps" :key="userKeep.Id" :keepData="userKeep"></keep> -->
         </div>
       </div>
     </div>
@@ -24,18 +17,20 @@
 
 <script>
 import Keep from "@/components/Keep.vue";
+import NewKeep from "@/components/NewKeep.vue";
 export default {
   name: "dashboard",
   components: {
-    Keep
+    Keep,
+    NewKeep
   },
   mounted() {
-    this.$store.dispatch("getUserKeeps");
+    // this.$store.dispatch("getUserKeeps");
   },
   computed: {
-    userKeeps() {
-      return this.$store.state.userKeeps;
-    }
+    // userKeeps() {
+    //   return this.$store.state.userKeeps;
+    // }
   }
 };
 </script>
