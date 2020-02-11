@@ -1,14 +1,18 @@
 <template>
-  <div class="home row">
-    <div class="col-12">
-      <h1>KEEPR</h1>
-      <div class="row">
-        <keep
-          class="col-3"
-          v-for="publicKeep in publicKeeps"
-          :key="publicKeep.Id"
-          :keepData="publicKeep"
-        ></keep>
+  <div class="home container-fluid">
+    <div class="row">
+      <div class="col-4">
+        <h1>KEEPR</h1>
+      </div>
+      <div class="col-12 align-col">
+        <div class="row">
+          <keep
+            class="col-3"
+            v-for="publicKeep in publicKeeps"
+            :key="publicKeep.Id"
+            :keepData="publicKeep"
+          ></keep>
+        </div>
       </div>
     </div>
   </div>
@@ -39,3 +43,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.align-col {
+  text-align: -webkit-center;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="app">
     <navbar />
     <router-view />
   </div>
@@ -20,5 +20,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

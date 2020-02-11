@@ -1,11 +1,9 @@
 <template>
   <div class="keep">
-    <div class="card" style="width: 20vw;">
+    <div class="card mb-5" style="width: 20vw;">
       <img :src="keepData.img" class="card-img-top" alt="..." />
       <div class="card-body">
-        <p
-          class="card-text"
-        >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">{{ keepData.description }}</p>
       </div>
     </div>
   </div>
@@ -18,5 +16,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
