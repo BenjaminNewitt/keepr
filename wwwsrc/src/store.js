@@ -18,7 +18,8 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     publicKeeps: [],
-    userKeeps: []
+    userKeeps: [],
+    vaults: []
   },
   mutations: {
     setResource(state, payload) {
@@ -38,8 +39,17 @@ export default new Vuex.Store({
 
     async getPublicKeeps({ commit, dispatch }) {
       try {
-        let res = await api.get("keeps/");
+        let res = await api.get("keeps");
         commit("setResource", { name: "publicKeeps", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async getVaults({ commit, dispatch }) {
+      try {
+        let res = await api.get("vaults");
+        commit("setResource", { name: "vaults", data: res.data });
       } catch (error) {
         console.error(error);
       }
