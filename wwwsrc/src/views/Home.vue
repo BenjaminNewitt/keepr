@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "home",
+  mounted() {},
   computed: {
     user() {
       return this.$store.state.user;

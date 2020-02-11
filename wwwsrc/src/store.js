@@ -5,7 +5,9 @@ import router from "./router";
 
 Vue.use(Vuex);
 
-let baseUrl = location.host.includes("localhost") ? "https://localhost:5001/" : "/";
+let baseUrl = location.host.includes("localhost")
+  ? "https://localhost:5001/"
+  : "/";
 
 let api = Axios.create({
   baseURL: baseUrl + "api/",
@@ -15,9 +17,13 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    publicKeeps: []
+    publicKeeps: [],
+    userKeeps: []
   },
   mutations: {
+    setResource(state, payload) {
+      state[payload.name] = payload.data;
+    }
   },
   actions: {
     setBearer({}, bearer) {
@@ -25,12 +31,22 @@ export default new Vuex.Store({
     },
     resetBearer() {
       api.defaults.headers.authorization = "";
-    }
+    },
 
-    async getPublicKeeps({commit, dispatch }) {
+    async getPublicKeeps({ commit, dispatch }) {
       try {
         let res = await api.get("keeps/");
-        commit("setResource", { name: publicKeeps})
+        commit("setResource", { name: "publicKeeps", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getUserKeeps({ commit, dispatch }) {
+      try {
+        let res = await api.get("keeps/user");
+        commit("setResource", { name: "userKeeps", data: res.data });
+      } catch (error) {
+        console.error(error);
       }
     }
   }

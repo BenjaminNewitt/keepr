@@ -36,6 +36,10 @@ namespace Keepr.Services
       }
       return exists;
     }
+    internal IEnumerable<Keep> GetKeepByUserId(string userId)
+    {
+      return _repo.GetKeepByUserId(userId);
+    }
 
     internal Keep Edit(Keep Update)
     {
@@ -69,5 +73,6 @@ namespace Keepr.Services
     {
       return _repo.GetKeepsByVaultId(id, userId);
     }
+
   }
 }
