@@ -27,6 +27,9 @@ export default new Vuex.Store({
     },
     addUserKeep(state, payload) {
       state.userKeeps.push(payload);
+    },
+    addVault(state, payload) {
+      state.vaults.push(payload);
     }
   },
   actions: {
@@ -68,6 +71,15 @@ export default new Vuex.Store({
       try {
         let res = await api.post("keeps", keepData);
         commit("addUserKeep", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async addVault({ commit, dispatch }, vaultData) {
+      try {
+        let res = await api.post("vaults", vaultData);
+        commit("addVault", res.data);
       } catch (error) {
         console.error(error);
       }
