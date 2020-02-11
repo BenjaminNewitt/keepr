@@ -1,7 +1,9 @@
 <template>
-  <div class="dashboard">
-    <h1>DASHBOARD</h1>
-    public {{ publicKeeps }} user {{ userKeeps}}
+  <div class="dashboard row">
+    <div class="col-12">
+      <h1>DASHBOARD</h1>
+      public {{ publicKeeps }} user {{ userKeeps}}
+    </div>
   </div>
 </template>
 

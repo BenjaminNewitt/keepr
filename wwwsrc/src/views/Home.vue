@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
-    <h1>KEEPR</h1>
-    {{ publicKeeps }}
+  <div class="home row">
+    <div class="col-12">
+      <h1>KEEPR</h1>
+      {{ publicKeeps }}
+    </div>
   </div>
 </template>
 
