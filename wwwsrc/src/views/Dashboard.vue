@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h1>WELCOME TO THE DASHBOARD</h1>
+    <h1>DASHBOARD</h1>
     public {{ publicKeeps }} user {{ userKeeps }}
   </div>
 </template>

@@ -26,5 +26,12 @@ export default new Vuex.Store({
     resetBearer() {
       api.defaults.headers.authorization = "";
     }
+
+    async getPublicKeeps({commit, dispatch }) {
+      try {
+        let res = await api.get("keeps/");
+        commit("setResource", { name: publicKeeps})
+      }
+    }
   }
 });
