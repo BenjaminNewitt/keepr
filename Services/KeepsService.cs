@@ -36,9 +36,9 @@ namespace Keepr.Services
       }
       return exists;
     }
-    internal IEnumerable<Keep> GetKeepByUserId(string userId)
+    internal IEnumerable<Keep> GetKeepsByUserId(string userId)
     {
-      return _repo.GetKeepByUserId(userId);
+      return _repo.GetKeepsByUserId(userId);
     }
 
     internal Keep Edit(Keep Update)

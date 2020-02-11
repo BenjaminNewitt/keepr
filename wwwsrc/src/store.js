@@ -41,6 +41,7 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+
     async getUserKeeps({ commit, dispatch }) {
       try {
         let res = await api.get("keeps/user");

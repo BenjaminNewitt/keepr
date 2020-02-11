@@ -38,10 +38,10 @@ namespace Keepr.Repositories
       return _db.QueryFirstOrDefault<Keep>(sql, new { Id });
     }
 
-    internal IEnumerable<Keep> GetKeepByUserId(string UserId)
+    internal IEnumerable<Keep> GetKeepsByUserId(string userId)
     {
-      string sql = "SELECT * FROM keeps WHERE userId = @UserId";
-      return _db.Query<Keep>(sql, new { UserId });
+      string sql = "SELECT * FROM keeps WHERE userId = @userId";
+      return _db.Query<Keep>(sql, new { userId });
     }
 
     internal void Edit(Keep Update)

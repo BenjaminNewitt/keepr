@@ -30,13 +30,9 @@ export default {
     Keep
   },
   mounted() {
-    this.$store.dispatch("getPublicKeeps");
     this.$store.dispatch("getUserKeeps");
   },
   computed: {
-    publicKeeps() {
-      return this.$store.state.publicKeeps;
-    },
     userKeeps() {
       return this.$store.state.userKeeps;
     }
