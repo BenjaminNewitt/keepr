@@ -24,11 +24,58 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Create Keep</button>
-          </div>
+          <form>
+            <div class="modal-body">
+              <div class="form-group">
+                <input
+                  v-model="newKeep.name"
+                  type="text"
+                  class="form-control"
+                  placeholder="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="newKeep.description"
+                  type="text"
+                  class="form-control"
+                  placeholder="description"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="newKeep.img"
+                  type="text"
+                  class="form-control"
+                  placeholder="image URL (optional)"
+                />
+              </div>
+              <div class="custom-control custom-switch text-left mt-3">
+                <input
+                  v-model="newKeep.isPrivate"
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="privacySwitch"
+                />
+                <label
+                  v-if="this.newKeep.isPrivate"
+                  class="custom-control-label"
+                  for="privacySwitch"
+                >Private</label>
+                <label
+                  v-else-if="!this.newKeep.isPrivate"
+                  class="custom-control-label"
+                  for="privacySwitch"
+                >Public</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Create Keep</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -37,7 +84,27 @@
 
 <script>
 export default {
-  name: "NewKeep"
+  name: "NewKeep",
+  data() {
+    return {
+      newKeep: {
+        name: "",
+        description: "",
+        img: "",
+        isPrivate: true
+      }
+    };
+  },
+  methods: {
+    addKeep() {
+      let keep = { ...this.newKeep };
+      this.$store.dispatch("addKeep", keep);
+      this.newKeep.name = "";
+      this.newKeep.description = "";
+      this.newKeep.img = "";
+      this.newKeep.isPrivate = true;
+    }
+  }
 };
 </script>
 
