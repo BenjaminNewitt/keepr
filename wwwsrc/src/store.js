@@ -142,9 +142,19 @@ export default new Vuex.Store({
     //#endregion
     // NOTE Delete requests
     //#region
+    async deleteUserKeep({ commit, dispatch }, keepId) {
+      try {
+        let res = await api.delete("keeps/" + keepId);
+        dispatch("getUserKeeps");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async deleteVault({ commit, dispatch }, vaultId) {
       try {
         let res = await api.delete("vaults/" + vaultId);
+        // TODO Remove vault from state instead of getVaults?
         dispatch("getVaults");
       } catch (error) {
         console.error(error);
