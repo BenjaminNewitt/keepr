@@ -2,7 +2,7 @@
   <div class="keep">
     <div class="card mb-5" style="width: 20vw;">
       <div id="keep-hover" @click.prevent="setActiveKeep">
-        <img :src="keepData.img" class="card-img-top" alt="..." />
+        <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
       <div class="card-body">
         <p class="card-text">
