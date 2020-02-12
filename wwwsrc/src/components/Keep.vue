@@ -11,7 +11,12 @@
           </i>
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" v-for="vault in vaults" :key="vault.id" href="#">{{ vault.name }}</a>
+          <a
+            class="dropdown-item"
+            v-for="vault in vaults"
+            :key="vault.id"
+            @click.prevent="addVaultKeep(vault.id)"
+          >{{ vault.name }}</a>
         </div>
       </div>
       <div class="card-body">
@@ -33,9 +38,7 @@
 export default {
   name: "Keep",
   props: ["keepData"],
-  mounted() {
-    this.$store.dispatch("getVaults");
-  },
+  mounted() {},
   computed: {
     vaults() {
       return this.$store.state.vaults;
@@ -45,6 +48,12 @@ export default {
     setActiveKeep() {
       // NOTE reroutes user to activeKeep/KeepDetails
       this.$store.dispatch("getKeepById", this.keepData.id);
+    },
+    addVaultKeep(vaultId) {
+      this.$store.dispatch("addVaultKeep", {
+        keepId: this.keepData.id,
+        vaultId: vaultId
+      });
     }
   }
 };
