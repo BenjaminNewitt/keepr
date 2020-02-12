@@ -134,7 +134,7 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
-    }
+    },
     //#endregion
     // NOTE Put requests
     //#region
@@ -142,7 +142,14 @@ export default new Vuex.Store({
     //#endregion
     // NOTE Delete requests
     //#region
-
+    async deleteVault({ commit, dispatch }, vaultId) {
+      try {
+        let res = await api.delete("vaults/" + vaultId);
+        dispatch("getVaults");
+      } catch (error) {
+        console.error(error);
+      }
+    }
     //#endregion
   }
 });

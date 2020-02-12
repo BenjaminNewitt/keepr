@@ -1,7 +1,8 @@
 <template>
   <div class="vault col-3">
-    <div id="vault-hover" @click.prevent="setActiveVault" class="card mb-5" style="width: 20vw;">
-      <div class="card-body">
+    <div class="card mb-5" style="width: 20vw;">
+      <i class="vault-hover fas fa-times text-right text-danger" @click.prevent="deleteVault"></i>
+      <div class="card-body vault-hover" @click.prevent="setActiveVault">
         <h4 class="card-text">{{ vaultData.name }}</h4>
       </div>
     </div>
@@ -16,13 +17,16 @@ export default {
     setActiveVault() {
       // NOTE reroutes user to activeVault/VaultDetails
       this.$store.dispatch("getVaultById", this.vaultData.id);
+    },
+    deleteVault() {
+      this.$store.dispatch("deleteVault", this.vaultData.id);
     }
   }
 };
 </script>
 
 <style>
-#vault-hover {
+.vault-hover {
   cursor: pointer;
 }
 </style>
