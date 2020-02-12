@@ -19,7 +19,9 @@ export default new Vuex.Store({
   state: {
     publicKeeps: [],
     userKeeps: [],
-    vaults: []
+    vaults: [],
+    activeKeep: {},
+    activeVault: {}
   },
   mutations: {
     setResource(state, payload) {
