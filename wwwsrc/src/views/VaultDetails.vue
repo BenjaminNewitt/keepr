@@ -7,12 +7,7 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <keep
-            class="col-3 align-col"
-            v-for="vaultKeep in vaultKeeps"
-            :key="vaultKeep.Id"
-            :keepData="vaultKeep"
-          ></keep>
+          <keep v-for="vaultKeep in vaultKeeps" :key="vaultKeep.Id" :keepData="vaultKeep"></keep>
         </div>
       </div>
     </div>

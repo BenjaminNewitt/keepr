@@ -17,7 +17,7 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <vault class="col-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vault>
+          <vault v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vault>
         </div>
       </div>
     </div>

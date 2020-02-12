@@ -1,5 +1,5 @@
 <template>
-  <div class="vault">
+  <div class="vault col-3">
     <div id="vault-hover" @click.prevent="setActiveVault" class="card mb-5" style="width: 20vw;">
       <div class="card-body">
         <h4 class="card-text">{{ vaultData.name }}</h4>

@@ -1,11 +1,11 @@
 <template>
-  <div class="keep">
-    <div class="card mb-3" style="width: 12vw;">
+  <div class="keep col-3 align-col">
+    <div class="card mb-3" style="width: 100%;">
       <div id="keep-hover" @click.prevent="setActiveKeep">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
       <div v-if="$auth.isAuthenticated" class="dropdown text-right">
-        <button class="dropdown-toggle" data-toggle="dropdown">
+        <button class="btn btn-outline-dark border-0 dropdown-toggle" data-toggle="dropdown">
           <i class="fas fa-plus text-right">
             <!-- list of vaults here, only visible if user is authenticated -->
           </i>

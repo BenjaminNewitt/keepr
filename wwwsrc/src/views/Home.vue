@@ -6,12 +6,7 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <keep
-            class="col-3"
-            v-for="publicKeep in publicKeeps"
-            :key="publicKeep.Id"
-            :keepData="publicKeep"
-          ></keep>
+          <keep v-for="publicKeep in publicKeeps" :key="publicKeep.Id" :keepData="publicKeep"></keep>
         </div>
       </div>
     </div>

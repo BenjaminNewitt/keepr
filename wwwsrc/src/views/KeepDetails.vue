@@ -21,12 +21,7 @@
           <div class="col-12 align-col">
             <h4 class="text-left">More Keeps</h4>
             <div class="row">
-              <keep
-                class="col-3 align-col"
-                v-for="publicKeep in publicKeeps"
-                :key="publicKeep.Id"
-                :keepData="publicKeep"
-              ></keep>
+              <keep v-for="publicKeep in publicKeeps" :key="publicKeep.Id" :keepData="publicKeep"></keep>
             </div>
           </div>
         </div>
