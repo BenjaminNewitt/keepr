@@ -4,11 +4,13 @@
       <div class="col-12 mt-5">
         <div class="row">
           <div class="col-6 text-center">
-            <img :src="activeKeep.img" class="rounded" />
+            <img :src="activeKeep.img" style="width: 75%;" class="rounded" />
             <p>
               <i class="far fa-eye"></i>
               :
               {{ activeKeep.views }} |
+              <i class="fas fa-key"></i>
+              : {{ activeKeep.keeps}} |
               <i class="fas fa-share-square"></i>
               :
               {{ activeKeep.shares }}

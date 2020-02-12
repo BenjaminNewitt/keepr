@@ -25,6 +25,8 @@
           <i class="far fa-eye"></i>
           :
           {{ keepData.views }} |
+          <i class="fas fa-key"></i>
+          : {{ keepData.keeps}} |
           <i class="fas fa-share-square"></i>
           :
           {{ keepData.shares }}
