@@ -78,10 +78,6 @@ export default new Vuex.Store({
       try {
         let res = await api.get("vaults");
         commit("setResource", { name: "vaults", data: res.data });
-        router.push({
-          name: "vaultDetails",
-          params: { id: res.data.id }
-        });
       } catch (error) {
         console.error(error);
       }
@@ -91,6 +87,10 @@ export default new Vuex.Store({
       try {
         let res = await api.get("vaults/" + id);
         commit("setResource", { name: "activeVault", data: res.data });
+        router.push({
+          name: "vaultDetails",
+          params: { id: res.data.id }
+        });
       } catch (error) {
         console.error(error);
       }

@@ -1,7 +1,9 @@
 <template>
   <div class="keep">
-    <div class="card mb-5" style="width: 20vw;" @click.prevent="setActiveKeep">
-      <img :src="keepData.img" class="card-img-top" alt="..." />
+    <div class="card mb-5" style="width: 20vw;">
+      <div id="keep-hover" @click.prevent="setActiveKeep">
+        <img :src="keepData.img" class="card-img-top" alt="..." />
+      </div>
       <div class="card-body">
         <p class="card-text">
           <i class="far fa-eye"></i>
@@ -23,10 +25,15 @@ export default {
   props: ["keepData"],
   methods: {
     setActiveKeep() {
+      // NOTE reroutes user to activeKeep/KeepDetails
       this.$store.dispatch("getKeepById", this.keepData.id);
     }
   }
 };
 </script>
 
-<style></style>
+<style>
+#keep-hover {
+  cursor: pointer;
+}
+</style>
