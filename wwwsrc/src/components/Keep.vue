@@ -1,6 +1,6 @@
 <template>
   <div class="keep">
-    <div class="card mb-5" style="width: 20vw;">
+    <div class="card mb-3" style="width: 12vw;">
       <div id="keep-hover" @click.prevent="setActiveKeep">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
