@@ -19,7 +19,7 @@
             <p>{{activeKeep.description }}</p>
           </div>
           <div class="col-12 align-col">
-            <h4>More Keeps</h4>
+            <h4 class="text-left">More Keeps</h4>
             <div class="row">
               <keep
                 class="col-3 align-col"

@@ -20,6 +20,7 @@ export default new Vuex.Store({
     publicKeeps: [],
     userKeeps: [],
     vaults: [],
+    vaultKeeps: [],
     activeKeep: {},
     activeVault: {}
   },
@@ -74,6 +75,15 @@ export default new Vuex.Store({
       }
     },
 
+    async getKeepsByVaultId({ commit, dispatch }, id) {
+      try {
+        let res = await api.get("vaultkeeps/" + id + "/Keeps");
+        commit("setResource", { name: "vaultKeeps", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async getVaults({ commit, dispatch }) {
       try {
         let res = await api.get("vaults");
@@ -95,6 +105,7 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+
     //#endregion
 
     // NOTE Post requests
