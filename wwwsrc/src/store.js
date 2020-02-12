@@ -131,7 +131,6 @@ export default new Vuex.Store({
     async addVaultKeep({ commit, dispatch }, vaultKeepData) {
       try {
         let res = await api.post("vaultkeeps", vaultKeepData);
-        console.log("vaultKeep res:", res);
       } catch (error) {
         console.error(error);
       }

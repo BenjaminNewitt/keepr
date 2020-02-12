@@ -7,7 +7,7 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <keep v-for="vaultKeep in vaultKeeps" :key="vaultKeep.Id" :keepData="vaultKeep"></keep>
+          <vaultKeep v-for="vaultKeep in vaultKeeps" :key="vaultKeep.Id" :keepData="vaultKeep"></vaultKeep>
         </div>
       </div>
     </div>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import Keep from "@/components/Keep.vue";
+import VaultKeep from "@/components/VaultKeep.vue";
 export default {
   name: "vaultDetails",
   components: {
-    Keep
+    VaultKeep
   },
   mounted() {
     this.$store.dispatch("getKeepsByVaultId", this.activeVault.id);

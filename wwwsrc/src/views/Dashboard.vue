@@ -8,7 +8,12 @@
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <keep class="col-3" v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></keep>
+          <userKeep
+            class="col-3"
+            v-for="userKeep in userKeeps"
+            :key="userKeep.id"
+            :keepData="userKeep"
+          ></userKeep>
         </div>
       </div>
       <div class="col-4">
@@ -25,14 +30,14 @@
 </template>
 
 <script>
-import Keep from "@/components/Keep.vue";
+import UserKeep from "@/components/UserKeep.vue";
 import NewKeep from "@/components/NewKeep.vue";
 import Vault from "@/components/Vault.vue";
 import NewVault from "@/components/NewVault.vue";
 export default {
   name: "dashboard",
   components: {
-    Keep,
+    UserKeep,
     NewKeep,
     Vault,
     NewVault
