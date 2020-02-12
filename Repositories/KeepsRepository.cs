@@ -32,6 +32,7 @@ namespace Keepr.Repositories
       return KeepData;
     }
 
+
     internal Keep GetKeepById(int Id)
     {
       string sql = "SELECT * FROM keeps WHERE id = @Id";
@@ -42,6 +43,15 @@ namespace Keepr.Repositories
     {
       string sql = "SELECT * FROM keeps WHERE userId = @userId";
       return _db.Query<Keep>(sql, new { userId });
+    }
+    internal void UpKeepViews(Keep KeepData)
+    {
+      string sql = @"
+      UPDATE keeps
+      SET
+      views = views + 1
+      WHERE id = @Id;";
+      _db.Execute(sql, KeepData);
     }
 
     internal void Edit(Keep Update)

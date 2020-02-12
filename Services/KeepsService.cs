@@ -34,6 +34,9 @@ namespace Keepr.Services
       {
         throw new Exception("Unauthorized");
       }
+      // NOTE Increases view count after keep is successfully retrieved
+      _repo.UpKeepViews(exists);
+      exists.Views += 1;
       return exists;
     }
     internal IEnumerable<Keep> GetKeepsByUserId(string userId)
