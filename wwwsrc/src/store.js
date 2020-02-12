@@ -41,7 +41,8 @@ export default new Vuex.Store({
     resetBearer() {
       api.defaults.headers.authorization = "";
     },
-
+    // NOTE Get requests
+    //#region
     async getPublicKeeps({ commit, dispatch }) {
       try {
         let res = await api.get("keeps");
@@ -51,10 +52,10 @@ export default new Vuex.Store({
       }
     },
 
-    async getVaults({ commit, dispatch }) {
+    async getKeepById({ commit, dispatch }, id) {
       try {
-        let res = await api.get("vaults");
-        commit("setResource", { name: "vaults", data: res.data });
+        let res = await api.get("keeps/" + id);
+        commit("setResource", { name: "activeKeep", data: res.data });
       } catch (error) {
         console.error(error);
       }
@@ -69,6 +70,27 @@ export default new Vuex.Store({
       }
     },
 
+    async getVaults({ commit, dispatch }) {
+      try {
+        let res = await api.get("vaults");
+        commit("setResource", { name: "vaults", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async getVaultById({ commit, dispatch }, id) {
+      try {
+        let res = await api.get("vaults/" + id);
+        commit("setResource", { name: "activeVault", data: res.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    //#endregion
+
+    // NOTE Post requests
+    //#region
     async addKeep({ commit, dispatch }, keepData) {
       try {
         let res = await api.post("keeps", keepData);
@@ -86,5 +108,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     }
+    //#endregion
+    // NOTE Put requests
+    //#region
+
+    //#endregion
+    // NOTE Delete requests
+    //#region
+
+    //#endregion
   }
 });
