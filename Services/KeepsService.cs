@@ -39,6 +39,12 @@ namespace Keepr.Services
       exists.Views += 1;
       return exists;
     }
+
+    internal void UpVaultCount(int KeepId)
+    {
+      _repo.UpKeepsCount(KeepId);
+    }
+
     internal IEnumerable<Keep> GetKeepsByUserId(string userId)
     {
       return _repo.GetKeepsByUserId(userId);

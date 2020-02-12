@@ -29,6 +29,7 @@ namespace Keepr.Controllers
         var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         newData.UserId = UserId;
         _vks.Create(newData);
+        _ks.UpVaultCount(newData.KeepId);
         return Ok("Success");
       }
       catch (Exception e)
