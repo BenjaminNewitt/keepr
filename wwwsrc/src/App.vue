@@ -22,11 +22,6 @@ export default {
 </script>
 
 <style>
-#app {
-  background-color: #ccedd2;
-  height: 100%;
-}
-
 h1,
 h2,
 h3,

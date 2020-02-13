@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light border">
     <router-link class="navbar-brand" :to="{ name: 'home' }">Keepr</router-link>
     <button
       class="navbar-toggler"
@@ -61,9 +61,6 @@ export default {
 </script>
 
 <style>
-.navbar {
-  background-color: #94d3ac;
-}
 .navbar-brand {
   font-family: "Open Sans", sans-serif;
 }

@@ -2,18 +2,12 @@
   <div class="dashboard container-fluid">
     <div class="row">
       <div class="col-4">
-        <h1>DASHBOARD</h1>
         <newKeep></newKeep>
         <p>My Keeps</p>
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <userKeep
-            class="col-3"
-            v-for="userKeep in userKeeps"
-            :key="userKeep.id"
-            :keepData="userKeep"
-          ></userKeep>
+          <userKeep v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></userKeep>
         </div>
       </div>
       <div class="col-4">

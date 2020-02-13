@@ -1,7 +1,7 @@
 <template>
-  <div class="userKeep col-3 align-col">
+  <div class="userKeep col-2 align-col">
     <div class="card mb-3" style="width: 100%;">
-      <div id="user-keep-hover" @click.prevent="setActiveKeep">
+      <div id="user-keep-hover" @click.prevent="setActiveKeep" class="m-2">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
       <i
@@ -24,8 +24,9 @@
           >{{ vault.name }}</a>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-text">
+      <div class="card-body p-1">
+        <h5 class="card-text">{{ keepData.name }}</h5>
+        <p class="card-text border-top pt-1">
           <i class="far fa-eye"></i>
           :
           {{ keepData.views }} |
@@ -35,7 +36,6 @@
           :
           {{ keepData.shares }}
         </p>
-        <h4 class="card-text">{{ keepData.name }}</h4>
       </div>
     </div>
   </div>

@@ -1,10 +1,7 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <div class="col-4">
-        <h1>KEEPR</h1>
-      </div>
-      <div class="col-12 align-col">
+      <div class="col-12 align-col mt-4">
         <div class="row">
           <keep v-for="publicKeep in publicKeeps" :key="publicKeep.Id" :keepData="publicKeep"></keep>
         </div>
