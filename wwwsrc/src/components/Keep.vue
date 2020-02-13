@@ -35,6 +35,7 @@
           :
           {{ keepData.shares }}
         </p>
+        <button type="button" class="btn btn-outline-dark">Share</button>
       </div>
     </div>
   </div>

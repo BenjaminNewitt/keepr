@@ -137,6 +137,12 @@ export default new Vuex.Store({
     },
     //#endregion
     // NOTE Put requests
+    async upKeepShare({ commit, dispatch }, keepId) {
+      try {
+      } catch (error) {
+        console.error(error);
+      }
+    },
     //#region
 
     //#endregion
