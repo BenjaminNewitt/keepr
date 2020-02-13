@@ -1,16 +1,20 @@
 <template>
   <div class="keep col-3 align-col">
     <div class="card mb-3" style="width: 100%;">
-      <div id="keep-hover" @click.prevent="setActiveKeep">
+      <div id="keep-hover" @click.prevent="setActiveKeep" class="m-2 mb-0">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
       <div v-if="$auth.isAuthenticated" class="dropdown text-right">
-        <button class="btn btn-outline-dark border-0 dropdown-toggle" data-toggle="dropdown">
+        <button
+          v-if="$auth.isAuthenticated"
+          class="btn btn-outline-dark border-0 dropdown-toggle"
+          data-toggle="dropdown"
+        >
           <i class="fas fa-plus text-right">
             <!-- list of vaults here, only visible if user is authenticated -->
           </i>
         </button>
-        <div class="dropdown-menu">
+        <div v-if="$auth.isAuthenticated" class="dropdown-menu">
           <a
             class="dropdown-item"
             v-for="vault in vaults"
@@ -19,8 +23,9 @@
           >{{ vault.name }}</a>
         </div>
       </div>
-      <div class="card-body">
-        <p class="card-text">
+      <div class="card-body p-1">
+        <h4 class="card-text">{{ keepData.name }}</h4>
+        <p class="card-text border-top pt-1">
           <i class="far fa-eye"></i>
           :
           {{ keepData.views }} |
@@ -30,7 +35,6 @@
           :
           {{ keepData.shares }}
         </p>
-        <h4 class="card-text">{{ keepData.name }}</h4>
       </div>
     </div>
   </div>

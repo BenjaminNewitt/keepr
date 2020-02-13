@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand" :to="{ name: 'home' }">Keepr</router-link>
     <button
       class="navbar-toggler"
@@ -45,6 +45,8 @@ export default {
   methods: {
     async login() {
       await this.$auth.loginWithPopup();
+      await this.$auth.getUserData();
+      console.log(this.$auth);
       this.$store.dispatch("setBearer", this.$auth.bearer);
       console.log("this.$auth.user: ");
       console.log(this.$auth.user);
@@ -58,4 +60,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.navbar {
+  background-color: #94d3ac;
+}
+.navbar-brand {
+  font-family: "Open Sans", sans-serif;
+}
+</style>

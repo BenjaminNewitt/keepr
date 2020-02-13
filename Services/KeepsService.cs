@@ -30,7 +30,7 @@ namespace Keepr.Services
       {
         throw new Exception("Invalid ID");
       }
-      if (exists.IsPrivate != false && exists.UserId != UserId)
+      if (exists.IsPrivate == true && exists.UserId != UserId)
       {
         throw new Exception("Unauthorized");
       }

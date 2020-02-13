@@ -12,6 +12,7 @@ export default {
   name: "App",
   async beforeCreate() {
     await onAuth();
+    await this.$auth.getUserData();
     this.$store.dispatch("setBearer", this.$auth.bearer);
   },
   components: {
@@ -20,4 +21,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#app {
+  background-color: #ccedd2;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Open Sans", sans-serif;
+}
+</style>
