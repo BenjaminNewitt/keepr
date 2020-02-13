@@ -4,12 +4,16 @@
       <div id="keep-hover" @click.prevent="setActiveKeep">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
+      <i
+        v-if="$auth.isAuthenticated"
+        class="vault-hover fas fa-times text-left text-danger"
+        @click.prevent="RemoveKeepFromVault()"
+      ></i>
       <div v-if="$auth.isAuthenticated" class="dropdown text-right">
         <button class="btn btn-outline-dark border-0 dropdown-toggle" data-toggle="dropdown">
-          <i class="fas fa-plus text-right">
-            <!-- list of vaults here, only visible if user is authenticated -->
-          </i>
+          <i class="fas fa-plus text-right"></i>
         </button>
+        <!-- list of vaults here, only visible if user is authenticated -->
         <div class="dropdown-menu">
           <a
             class="dropdown-item"
@@ -39,7 +43,7 @@
 <script>
 export default {
   name: "VaultKeep",
-  props: ["keepData"],
+  props: ["keepData", "vaultData"],
   mounted() {},
   computed: {
     vaults() {
@@ -53,8 +57,13 @@ export default {
     },
     addVaultKeep(vaultId) {
       this.$store.dispatch("addVaultKeep", {
+        keepId: this.keepData.id
+      });
+    },
+    RemoveKeepFromVault() {
+      this.$store.dispatch("RemoveKeepFromVault", {
         keepId: this.keepData.id,
-        vaultId: vaultId
+        vaultId: this.vaultData.id
       });
     }
   }

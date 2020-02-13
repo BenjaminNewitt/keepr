@@ -4,7 +4,11 @@
       <div id="user-keep-hover" @click.prevent="setActiveKeep">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
-      <i class="vault-hover fas fa-times text-left text-danger" @click.prevent="deleteUserKeep"></i>
+      <i
+        v-if="$auth.isAuthenticated"
+        class="vault-hover fas fa-times text-left text-danger"
+        @click.prevent="deleteUserKeep"
+      ></i>
       <div v-if="$auth.isAuthenticated" class="dropdown text-right">
         <button class="btn btn-outline-dark border-0 dropdown-toggle" data-toggle="dropdown">
           <i class="fas fa-plus text-right">
