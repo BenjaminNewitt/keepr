@@ -16,7 +16,7 @@
       aria-labelledby="newVaultModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="newVaultModalLabel">New Vault</h5>
@@ -36,12 +36,12 @@
                 />
               </div>
               <div class="form-group">
-                <input
+                <textarea
                   v-model="newVault.description"
-                  type="text"
                   class="form-control"
                   placeholder="description"
                   required
+                  rows="3"
                 />
               </div>
             </div>
