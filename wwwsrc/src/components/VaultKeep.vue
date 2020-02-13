@@ -25,7 +25,7 @@
       </div>
       <div class="card-body">
         <h4 class="card-text">{{ keepData.name }}</h4>
-        <p class="card-text border-top pt-1"">
+        <p class="card-text border-top pt-1">
           <i class="far fa-eye"></i>
           :
           {{ keepData.views }} |
