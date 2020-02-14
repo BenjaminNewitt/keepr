@@ -12,7 +12,7 @@ export default {
   name: "App",
   async beforeCreate() {
     await onAuth();
-    await this.$auth.getUserData();
+    // await this.$auth.getUserData();
     this.$store.dispatch("setBearer", this.$auth.bearer);
   },
   components: {

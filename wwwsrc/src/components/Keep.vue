@@ -1,28 +1,10 @@
 <template>
-  <div class="keep col-2 align-col">
+  <div class="keep col-12 col-sm-4 col-md-3 col-lg-2 align-col">
     <div class="card mb-3" style="width: 100%;">
       <div id="keep-hover" @click.prevent="setActiveKeep" class="m-2 mb-0">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
-      <div v-if="$auth.isAuthenticated" class="dropdown text-right">
-        <button
-          v-if="$auth.isAuthenticated"
-          class="btn btn-outline-dark border-0 dropdown-toggle"
-          data-toggle="dropdown"
-        >
-          <i class="fas fa-plus text-right">
-            <!-- list of vaults here, only visible if user is authenticated -->
-          </i>
-        </button>
-        <div v-if="$auth.isAuthenticated" class="dropdown-menu">
-          <a
-            class="dropdown-item"
-            v-for="vault in vaults"
-            :key="vault.id"
-            @click.prevent="addVaultKeep(vault.id)"
-          >{{ vault.name }}</a>
-        </div>
-      </div>
+
       <div class="card-body p-1">
         <h5 class="card-text">{{ keepData.name }}</h5>
         <p class="card-text border-top pt-1">
@@ -36,6 +18,23 @@
           {{ keepData.shares }}
         </p>
         <button type="button" class="btn btn-outline-dark">Share</button>
+        <div v-if="$auth.isAuthenticated" class="dropdown text-right d-inline-block">
+          <button
+            v-if="$auth.isAuthenticated"
+            class="btn btn-outline-dark border-0 dropdown-toggle"
+            data-toggle="dropdown"
+          >
+            <i class="fas fa-plus text-right"></i>
+          </button>
+          <div v-if="$auth.isAuthenticated" class="dropdown-menu">
+            <a
+              class="dropdown-item"
+              v-for="vault in vaults"
+              :key="vault.id"
+              @click.prevent="addVaultKeep(vault.id)"
+            >{{ vault.name }}</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +44,9 @@
 export default {
   name: "Keep",
   props: ["keepData"],
-  mounted() {},
+  mounted() {
+    // this.$store.dispatch("getVaults");
+  },
   computed: {
     vaults() {
       return this.$store.state.vaults;

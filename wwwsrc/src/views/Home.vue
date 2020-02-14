@@ -19,7 +19,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getPublicKeeps");
-    // this.$store.dispatch("getVaults");
+    this.$store.dispatch("getVaults");
   },
   computed: {
     user() {

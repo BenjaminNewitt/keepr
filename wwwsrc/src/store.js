@@ -37,10 +37,10 @@ export default new Vuex.Store({
   },
   actions: {
     setBearer({}, bearer) {
-      api.defaults.headers.authorization = bearer;
+      api.defaults.headers.Authorization = bearer;
     },
     resetBearer() {
-      api.defaults.headers.authorization = "";
+      api.defaults.headers.Authorization = "";
     },
     // NOTE Get requests
     //#region

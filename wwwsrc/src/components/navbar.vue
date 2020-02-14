@@ -61,6 +61,12 @@ export default {
 </script>
 
 <style>
+.navbar {
+  background-color: #f1f3f4;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
 .navbar-brand {
   font-family: "Open Sans", sans-serif;
 }
