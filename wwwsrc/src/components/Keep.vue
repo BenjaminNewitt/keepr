@@ -1,5 +1,5 @@
 <template>
-  <div class="keep col-12 col-sm-4 col-md-3 col-lg-2 align-col">
+  <div id="keep" class="col-12 col-sm-4 col-md-3 col-lg-2 align-col">
     <div class="card mb-3" style="width: 100%;">
       <div id="keep-hover" @click.prevent="setActiveKeep" class="m-2 mb-0">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />

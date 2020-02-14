@@ -1,5 +1,5 @@
 <template>
-  <div class="home container-fluid">
+  <div id="home" class="container-fluid">
     <div class="row">
       <div class="col-12 align-col top-of-view">
         <div class="row">

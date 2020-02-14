@@ -1,7 +1,7 @@
 <template>
-  <div class="dashboard container-fluid">
+  <div id="dashboard" class="container-fluid">
     <div class="row">
-      <div class="col-4">
+      <div class="col-4 top-of-view">
         <newKeep></newKeep>
         <p>My Keeps</p>
       </div>
@@ -54,5 +54,15 @@ export default {
 <style scoped>
 .align-col {
   text-align: -webkit-center;
+}
+
+.top-of-view {
+  margin-top: 8%;
+}
+
+@media only screen and (max-width: 481px) {
+  .top-of-view {
+    margin-top: 20%;
+  }
 }
 </style>

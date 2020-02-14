@@ -1,6 +1,6 @@
 <template>
-  <div class="vault col-3">
-    <div class="card mb-5" style="width: 20vw;">
+  <div id="vault" class="col-12 col-sm-4 col-md-3 col-lg-2 align-col">
+    <div class="card mb-5" style="width: 100%;">
       <i class="vault-hover fas fa-times text-right text-danger" @click.prevent="deleteVault"></i>
       <div class="card-body vault-hover" @click.prevent="setActiveVault">
         <h4 class="card-text">{{ vaultData.name }}</h4>

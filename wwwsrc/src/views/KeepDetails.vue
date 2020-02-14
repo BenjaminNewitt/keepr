@@ -1,7 +1,7 @@
 <template>
   <div id="keep-details" class="container-fluid">
     <div class="row">
-      <div class="col-12 mt-5">
+      <div class="col-12 top-of-view">
         <div class="row">
           <div class="col-6 text-center">
             <img :src="activeKeep.img" style="width: 75%;" class="rounded" />
@@ -56,5 +56,15 @@ export default {
 <style scoped>
 .align-col {
   text-align: -webkit-center;
+}
+
+.top-of-view {
+  margin-top: 8%;
+}
+
+@media only screen and (max-width: 481px) {
+  .top-of-view {
+    margin-top: 20%;
+  }
 }
 </style>

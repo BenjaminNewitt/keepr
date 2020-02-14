@@ -1,5 +1,5 @@
 <template>
-  <div class="userKeep col-2 align-col">
+  <div id="userKeep" class="col-12 col-sm-4 col-md-3 col-lg-2 align-col">
     <div class="card mb-3" style="width: 100%;">
       <div id="user-keep-hover" @click.prevent="setActiveKeep" class="m-2">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
