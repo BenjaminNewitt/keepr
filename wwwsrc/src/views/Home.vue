@@ -1,7 +1,7 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <div class="col-12 align-col mt-4">
+      <div class="col-12 align-col top-of-view">
         <div class="row">
           <keep v-for="publicKeep in publicKeeps" :key="publicKeep.Id" :keepData="publicKeep"></keep>
         </div>
@@ -40,5 +40,15 @@ export default {
 <style scoped>
 .align-col {
   text-align: -webkit-center;
+}
+
+.top-of-view {
+  margin-top: 8%;
+}
+
+@media only screen and (max-width: 481px) {
+  .top-of-view {
+    margin-top: 20%;
+  }
 }
 </style>
