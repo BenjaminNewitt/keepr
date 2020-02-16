@@ -14,6 +14,7 @@ export default {
     await onAuth();
     await this.$auth.getUserData();
     this.$store.dispatch("setBearer", this.$auth.bearer);
+    await this.$store.dispatch("getVaults");
   },
   components: {
     Navbar
