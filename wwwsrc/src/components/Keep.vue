@@ -17,7 +17,7 @@
           :
           {{ keepData.shares }}
         </p>
-        <button type="button" class="btn btn-outline-dark">Share</button>
+        <!-- <button type="button" class="btn btn-outline-dark">Share</button> -->
         <div v-if="$auth.isAuthenticated" class="dropdown text-right d-inline-block">
           <button
             v-if="$auth.isAuthenticated"
