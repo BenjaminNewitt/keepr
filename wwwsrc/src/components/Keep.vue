@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style>
-#keep-hover {
+#keep-hover hover {
   cursor: pointer;
 }
 </style>
