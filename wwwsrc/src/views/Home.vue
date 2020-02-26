@@ -3,7 +3,11 @@
     <div class="row">
       <div class="col-12 align-col top-of-view">
         <div class="row">
-          <keep v-for="publicKeep in publicKeeps" :key="publicKeep.Id" :keepData="publicKeep"></keep>
+          <keep
+            v-for="publicKeep in publicKeeps"
+            :key="publicKeep.Id"
+            :keepData="publicKeep"
+          ></keep>
         </div>
       </div>
     </div>
@@ -19,7 +23,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getPublicKeeps");
-    this.$store.dispatch("getVaults");
   },
   computed: {
     user() {
