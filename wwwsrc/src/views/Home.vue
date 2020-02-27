@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-12 align-col top-of-view">
         <div class="row">
-          <keep
+          <public-keep
             v-for="publicKeep in publicKeeps"
             :key="publicKeep.Id"
             :keepData="publicKeep"
-          ></keep>
+          ></public-keep>
         </div>
       </div>
     </div>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import Keep from "@/components/Keep.vue";
+import PublicKeep from "@/components/PublicKeep.vue";
 export default {
   name: "home",
   components: {
-    Keep
+    PublicKeep
   },
   mounted() {
     this.$store.dispatch("getPublicKeeps");
