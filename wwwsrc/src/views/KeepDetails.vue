@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-12 top-of-view">
         <div class="row">
-          <div class="col-6 text-center">
-            <img :src="activeKeep.img" style="width: 75%;" class="rounded" />
+          <div class="col-12 col-md-6 text-center">
+            <img :src="activeKeep.img" style="width: 100%;" class="rounded" />
             <p>
               <i class="far fa-eye"></i>
               :
@@ -16,7 +16,7 @@
               {{ activeKeep.shares }}
             </p>
           </div>
-          <div class="col-6">
+          <div class="col-10 col-md-6">
             <h2>{{ activeKeep.name }}</h2>
             <p>{{ activeKeep.description }}</p>
           </div>
