@@ -12,13 +12,16 @@
           :
           {{ keepData.views }} |
           <i class="fas fa-key"></i>
-          : {{ keepData.keeps}} |
+          : {{ keepData.keeps }} |
           <i class="fas fa-share-square"></i>
           :
           {{ keepData.shares }}
         </p>
         <!-- <button type="button" class="btn btn-outline-dark">Share</button> -->
-        <div v-if="$auth.isAuthenticated" class="dropdown text-right d-inline-block">
+        <div
+          v-if="$auth.isAuthenticated"
+          class="dropdown text-right d-inline-block"
+        >
           <button
             v-if="$auth.isAuthenticated"
             class="btn btn-outline-dark border-0 dropdown-toggle"
@@ -32,7 +35,8 @@
               v-for="vault in vaults"
               :key="vault.id"
               @click.prevent="addVaultKeep(vault.id)"
-            >{{ vault.name }}</a>
+              >{{ vault.name }}</a
+            >
           </div>
         </div>
       </div>
@@ -55,7 +59,7 @@ export default {
   methods: {
     setActiveKeep() {
       // NOTE reroutes user to activeKeep/KeepDetails
-      this.$store.dispatch("getKeepById", this.keepData.id);
+      this.$store.dispatch("getPublicKeepById", this.keepData.id);
     },
     addVaultKeep(vaultId) {
       this.$store.dispatch("addVaultKeep", {

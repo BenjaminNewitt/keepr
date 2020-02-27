@@ -66,6 +66,19 @@ export default new Vuex.Store({
       }
     },
 
+    async getPublicKeepById({ commit, dispatch }, id) {
+      try {
+        let res = await api.get("keeps/" + id + "/public");
+        commit("setResource", { name: "activeKeep", data: res.data });
+        router.push({
+          name: "keepDetails",
+          params: { id: res.data.id }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async getUserKeeps({ commit, dispatch }) {
       try {
         let res = await api.get("keeps/user");
