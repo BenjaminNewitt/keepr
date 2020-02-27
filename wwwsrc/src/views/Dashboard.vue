@@ -1,7 +1,7 @@
 <template>
   <div id="dashboard" class="container-fluid">
     <div class="row">
-      <div class="col-6 col-md-4 top-of-view">
+      <div class="col-6 col-md-4 top-of-view mb-3">
         <h2>My Keeps</h2>
         <newKeep></newKeep>
       </div>
@@ -14,7 +14,7 @@
           ></userKeep>
         </div>
       </div>
-      <div class="col-6 col-md-4">
+      <div class="col-6 col-md-4 mb-3">
         <h2>My Vaults</h2>
         <newVault></newVault>
       </div>
@@ -65,7 +65,7 @@ export default {
 }
 
 .top-of-view {
-  margin-top: 8%;
+  margin-top: 6%;
 }
 
 @media only screen and (max-width: 481px) {
