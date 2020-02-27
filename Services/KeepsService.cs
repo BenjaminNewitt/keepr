@@ -40,6 +40,23 @@ namespace Keepr.Services
       return exists;
     }
 
+    internal Keep GetPublicKeepById(int Id)
+    {
+      Keep exists = _repo.GetKeepById(Id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid ID");
+      }
+      if (exists.IsPrivate == true)
+      {
+        throw new Exception("Unauthorized");
+      }
+      // NOTE Increases view count after keep is successfully retrieved
+      _repo.UpKeepViews(exists);
+      exists.Views += 1;
+      return exists;
+    }
+
     internal void UpVaultCount(int KeepId)
     {
       _repo.UpKeepsCount(KeepId);
@@ -77,6 +94,8 @@ namespace Keepr.Services
       _repo.Delete(Id);
       return "Successfully Deleted";
     }
+
+
 
     internal IEnumerable<Keep> GetKeepsByVaultId(int id, string userId)
     {
