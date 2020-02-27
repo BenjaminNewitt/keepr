@@ -1,28 +1,8 @@
 <template>
-  <div id="userKeep" class="col-12 col-sm-4 col-md-3 col-lg-2 align-col">
+  <div id="userKeep" class="col-12 col-sm-4 col-md-3 align-col">
     <div class="card mb-3" style="width: 100%;">
       <div id="user-keep-hover" @click.prevent="setActiveKeep" class="m-2">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
-      </div>
-      <i
-        v-if="$auth.isAuthenticated"
-        class="vault-hover fas fa-times text-left text-danger"
-        @click.prevent="deleteUserKeep"
-      ></i>
-      <div v-if="$auth.isAuthenticated" class="dropdown text-right">
-        <button class="btn btn-outline-dark border-0 dropdown-toggle" data-toggle="dropdown">
-          <i class="fas fa-plus text-right">
-            <!-- list of vaults here, only visible if user is authenticated -->
-          </i>
-        </button>
-        <div class="dropdown-menu">
-          <a
-            class="dropdown-item"
-            v-for="vault in vaults"
-            :key="vault.id"
-            @click.prevent="addVaultKeep(vault.id)"
-          >{{ vault.name }}</a>
-        </div>
       </div>
       <div class="card-body p-1">
         <h5 class="card-text">{{ keepData.name }}</h5>
@@ -31,11 +11,40 @@
           :
           {{ keepData.views }} |
           <i class="fas fa-key"></i>
-          : {{ keepData.keeps}} |
+          : {{ keepData.keeps }} |
           <i class="fas fa-share-square"></i>
           :
           {{ keepData.shares }}
         </p>
+        <div class="row justify-content-between">
+          <div class="col-6 text-left">
+            <i
+              v-if="$auth.isAuthenticated"
+              class="vault-hover fas fa-times text-danger ml-2"
+              @click.prevent="deleteUserKeep"
+            ></i>
+          </div>
+          <div class="col-6 text-right">
+            <div v-if="$auth.isAuthenticated" class="dropdown d-inline-block">
+              <button
+                v-if="$auth.isAuthenticated"
+                class="btn btn-outline-dark border-0 dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                <i class="fas fa-plus text-right"></i>
+              </button>
+              <div v-if="$auth.isAuthenticated" class="dropdown-menu">
+                <a
+                  class="dropdown-item"
+                  v-for="vault in vaults"
+                  :key="vault.id"
+                  @click.prevent="addVaultKeep(vault.id)"
+                  >{{ vault.name }}</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

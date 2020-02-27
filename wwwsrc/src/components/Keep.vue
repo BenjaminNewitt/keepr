@@ -18,25 +18,26 @@
           {{ keepData.shares }}
         </p>
         <!-- <button type="button" class="btn btn-outline-dark">Share</button> -->
-        <div
-          v-if="$auth.isAuthenticated"
-          class="dropdown text-right d-inline-block"
-        >
-          <button
-            v-if="$auth.isAuthenticated"
-            class="btn btn-outline-dark border-0 dropdown-toggle"
-            data-toggle="dropdown"
-          >
-            <i class="fas fa-plus text-right"></i>
-          </button>
-          <div v-if="$auth.isAuthenticated" class="dropdown-menu">
-            <a
-              class="dropdown-item"
-              v-for="vault in vaults"
-              :key="vault.id"
-              @click.prevent="addVaultKeep(vault.id)"
-              >{{ vault.name }}</a
-            >
+        <div class="row d-flex flex-row-reverse">
+          <div class="col-3">
+            <div v-if="$auth.isAuthenticated" class="dropdown d-inline-block">
+              <button
+                v-if="$auth.isAuthenticated"
+                class="btn btn-outline-dark border-0 dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                <i class="fas fa-plus text-right"></i>
+              </button>
+              <div v-if="$auth.isAuthenticated" class="dropdown-menu">
+                <a
+                  class="dropdown-item"
+                  v-for="vault in vaults"
+                  :key="vault.id"
+                  @click.prevent="addVaultKeep(vault.id)"
+                  >{{ vault.name }}</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
