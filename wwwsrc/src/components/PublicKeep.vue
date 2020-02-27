@@ -1,5 +1,5 @@
 <template>
-  <div id="public-keep" class="col-12 col-sm-4 col-md-3 col-lg-2 align-col">
+  <div id="public-keep" class="col-12 col-sm-4 col-md-3 align-col">
     <div class="card mb-3" style="width: 100%;">
       <div id="keep-hover" @click.prevent="setActiveKeep" class="m-2 mb-0">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
@@ -19,7 +19,7 @@
         </p>
         <!-- <button type="button" class="btn btn-outline-dark">Share</button> -->
         <div class="row d-flex flex-row-reverse">
-          <div class="col-3">
+          <div class="col-4 col-md-6">
             <div v-if="$auth.isAuthenticated" class="dropdown d-inline-block">
               <button
                 v-if="$auth.isAuthenticated"
