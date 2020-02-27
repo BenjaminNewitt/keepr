@@ -1,22 +1,30 @@
 <template>
   <div id="dashboard" class="container-fluid">
     <div class="row">
-      <div class="col-4 top-of-view">
+      <div class="col-6 col-md-4 top-of-view">
+        <h2>My Keeps</h2>
         <newKeep></newKeep>
-        <p>My Keeps</p>
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <userKeep v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></userKeep>
+          <userKeep
+            v-for="userKeep in userKeeps"
+            :key="userKeep.id"
+            :keepData="userKeep"
+          ></userKeep>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6 col-md-4">
+        <h2>My Vaults</h2>
         <newVault></newVault>
-        <p>My Vaults</p>
       </div>
       <div class="col-12 align-col">
         <div class="row">
-          <vault v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vault>
+          <vault
+            v-for="vault in vaults"
+            :key="vault.id"
+            :vaultData="vault"
+          ></vault>
         </div>
       </div>
     </div>
