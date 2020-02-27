@@ -1,7 +1,7 @@
 <template>
   <div id="public-keep" class="col-12 col-sm-4 col-md-3 align-col">
     <div class="card mb-3" style="width: 100%;">
-      <div id="keep-hover" @click.prevent="setActiveKeep" class="m-2 mb-0">
+      <div @click.prevent="setActiveKeep" class="m-2 mb-0 keep-hover">
         <img :src="keepData.img" class="card-img-top rounded" alt="..." />
       </div>
 
@@ -19,7 +19,7 @@
         </p>
         <!-- <button type="button" class="btn btn-outline-dark">Share</button> -->
         <div class="row d-flex flex-row-reverse">
-          <div class="col-4 col-md-6">
+          <div class="col-6 col-sm-5 col-md-4 col-lg-3">
             <div v-if="$auth.isAuthenticated" class="dropdown d-inline-block">
               <button
                 v-if="$auth.isAuthenticated"
@@ -30,7 +30,7 @@
               </button>
               <div v-if="$auth.isAuthenticated" class="dropdown-menu">
                 <a
-                  class="dropdown-item"
+                  class="dropdown-item keep-hover"
                   v-for="vault in vaults"
                   :key="vault.id"
                   @click.prevent="addVaultKeep(vault.id)"
@@ -72,8 +72,8 @@ export default {
 };
 </script>
 
-<style>
-#keep-hover hover {
+<style scoped>
+.keep-hover hover {
   cursor: pointer;
 }
 </style>
