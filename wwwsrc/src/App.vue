@@ -23,10 +23,13 @@ export default {
 </script>
 
 <style>
-h1,
+/* h1,
 h2,
 h3,
 h4 {
   font-family: "Open Sans", sans-serif;
+} */
+#app {
+  font-family: "Source Sans Pro";
 }
 </style>
