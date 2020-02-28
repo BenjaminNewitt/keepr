@@ -5,13 +5,11 @@ import router from "./router";
 
 Vue.use(Vuex);
 
-let baseUrl = location.host.includes("localhost")
-  ? "https://localhost:5001/"
-  : "/";
+let baseUrl = "http://keepr-v.herokuapp.com/api";
 
 let api = Axios.create({
   baseURL: baseUrl + "api/",
-  timeout: 15000,
+  timeout: 6000,
   withCredentials: true
 });
 
