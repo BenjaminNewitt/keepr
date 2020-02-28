@@ -1,4 +1,4 @@
 module.exports = {
-  outputDir: '../wwwroot',
+  outputDir: "../wwwroot",
   productionSourceMap: false
-}
+};
