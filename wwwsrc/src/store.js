@@ -5,7 +5,7 @@ import router from "./router";
 
 Vue.use(Vuex);
 
-let baseUrl = "http://keepr-v.herokuapp.com/api";
+let baseUrl = "https://keepr-v.herokuapp.com/";
 
 let api = Axios.create({
   baseURL: baseUrl + "api/",
